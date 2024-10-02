@@ -214,6 +214,33 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("close7").addEventListener("click", function () {
         closeModal("modal7");
     });
+
+    document.getElementById("img8").addEventListener("click", function () {
+        openModal("modal8");
+    });
+
+    // click event listeners -- close buttons to close their respective modals
+    document.getElementById("close8").addEventListener("click", function () {
+        closeModal("modal8");
+    });
+
+    document.getElementById("img9").addEventListener("click", function () {
+        openModal("modal9");
+    });
+
+    // click event listeners -- close buttons to close their respective modals
+    document.getElementById("close9").addEventListener("click", function () {
+        closeModal("modal9");
+    });
+
+    document.getElementById("img10").addEventListener("click", function () {
+        openModal("modal10");
+    });
+
+    // click event listeners -- close buttons to close their respective modals
+    document.getElementById("close10").addEventListener("click", function () {
+        closeModal("modal10");
+    });
 });
 
 
