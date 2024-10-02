@@ -1,0 +1,32 @@
+name: Deploy to Bluehost
+
+on:
+  push:
+    branches:
+      - main  # Change to your default branch if different
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Sync files via FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        protocol: ftp
+        local-dir: ./
+        server-dir: /public_html/
+        exclude: |
+          .git*
+          README.md
+          .github/
+          node_modules/
+          **/*.test.js
+          **/__tests__/
