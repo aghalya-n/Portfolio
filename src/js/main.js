@@ -347,3 +347,72 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const cursor = document.querySelector(".cust-cursor");
+    const cursorTextContainer = document.querySelector(".cursor-txt");
+
+    // Function to create circular text
+    function createCircularText(text, radius, container) {
+        container.innerHTML = '';
+        const fullText = `${text} ${text}`;
+        const characters = fullText.split('');
+        const num = characters.length;
+        const angleU = 360 / num;
+
+        for (let i = 0; i < num; i++) {
+            const char = characters[i];
+            const angle = i * angleU;
+            const span = document.createElement('span');
+            span.textContent = char;
+            span.style.position = 'absolute';
+            span.style.transform = `rotate(${angle}deg) translate(${radius}px) rotate(${-angle}deg)`;
+            cursorTextContainer.appendChild(span);
+        }
+        // for (let i = 0; i < num; i++) {
+        //     const char = characters[i];
+        //     const angle = 180 + i * angleL;
+        //     const span = document.createElement('span');
+        //     span.textContent = char;
+        //     span.style.position = 'absolute';
+        //     span.style.transform = `rotate(${angle}deg) translate(${radius}px) rotate(${-angle}deg)`;
+        //     cursorTextContainer.appendChild(span);
+        // }
+    }
+
+    // Initial cursor text
+    let cursorText = "scroll";
+    createCircularText(cursorText, 30, cursorTextContainer);
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let moving = false;
+
+    document.addEventListener('mousemove', e => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        if (!moving) {
+            requestAnimationFrame(moveCursor);
+            moving = true;
+        }
+    });
+
+    function moveCursor() {
+        cursor.style.top = `${mouseY}px`;
+        cursor.style.left = `${mouseX}px`;
+        moving = false;
+    }
+
+    // Change cursor text on hover over clickable elements
+    const clickableElements = document.querySelectorAll('a, button, .image, .modal-content, summary');
+    clickableElements.forEach(elem => {
+        elem.addEventListener('mouseenter', () => {
+            cursorText = "click";
+            createCircularText(cursorText, 25, cursorTextContainer);
+        });
+        elem.addEventListener('mouseleave', () => {
+            cursorText = "scroll";
+            createCircularText(cursorText, 30, cursorTextContainer);
+        });
+    });
+});

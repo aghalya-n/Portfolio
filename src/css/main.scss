@@ -25,6 +25,7 @@ body {
     overflow-x: hidden;
     // width: 100vw;
     // height: 100vh;
+    // cursor: none;
 }
 
 h1 {
@@ -50,6 +51,65 @@ h3 {
     font-style: italic;
     padding-top: 25px;
     letter-spacing: .1em;
+}
+
+.p-bottom-p {
+    font-weight: 400;
+    // font-style: italic;
+    padding-top: 25px;
+    letter-spacing: .1em;
+}
+
+.note {
+    font-style: italic;
+    // font-weight: 100;
+    font-size: .85em;
+}
+
+.pdf-s {
+    margin: auto;
+    display: block;
+    width: 80%;
+    height: 400px;
+    // position: relative;
+    overflow: auto;
+    border: none;
+    // color: $dark-color;
+    margin-top: 10px;
+}
+
+.pdf-sects {
+    color: $dark-color;
+    // padding: 20px;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 15px;
+}
+
+.deets {
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.deets[open] summary {
+    // background-color: rgba(90, 88, 95, 0.364);
+    border: 2px solid $dark-color;
+    padding: 2px;
+    border-radius: 10px;
+    // color: $light-color;
+}
+
+.deets summary {
+    font-weight: 100;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+.deets summary:hover {
+    border: 2px solid rgba(48, 45, 82, 0.443);
+    // background-color: rgba(90, 88, 95, 0.364);
+    padding: 2px;
+    border-radius: 10px;
+    color: rgba(48, 45, 82, 0.443);
 }
 
 // main {
@@ -512,6 +572,7 @@ header {
     font-size: 1.2em;
     font-weight: 600;
     color: $light-color;
+    // font-family: 'Playfair Display', serif;
 }
 
 .modal-content {
@@ -560,11 +621,11 @@ header {
     letter-spacing: .25em;
 }
 
-// .modal-caption p {
-//     font-weight: 600;
-//     font-style: italic;
-//     letter-spacing: .15em;
-// }
+.modal-caption p {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    letter-spacing: .025em;
+}
 
 .caption {
     text-align: center;
@@ -701,4 +762,53 @@ footer {
 
 #backToTop:hover {
     background-color: #b098c5; /* Add a hover effect */
-}   
+}
+
+.cust-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1000;
+    width: 40px;
+    height: 20px;
+    transform: translate(-50%, -50%);
+}
+
+.cursor-txt {
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    // font-size: .5em;
+    // text-transform: uppercase;
+    // font-weight: 100;
+    // color: $dark-color;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // white-space: nowrap;
+    transform: translate(-50%, -50%);
+    // left: 50%;
+    // top: 50%;
+}
+
+// .cursor-txt::before {
+//     content: attr(data-text);
+//     display: block;
+//     width: 20px;
+//     height: 20px;
+//     text-align: center;
+//     transform: rotate(0deg);
+//     animation: spin 5s linear infinite;
+// }
+
+.cursor-txt span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-origin: 0 0;
+    font-size: 1em;
+    font-weight: 600;
+    color: $light-color;
+
+}
