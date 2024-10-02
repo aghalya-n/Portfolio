@@ -14,16 +14,15 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Sync files via FTP
-      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      uses: SamKirkland/FTP-Deploy-Action@4.5.0
       with:
-        server: ${{ secrets.SERVER }}
+        server: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         protocol: ftp
         local-dir: ./
-        server-dir: /public_html
-        concurrency: 5
+        server-dir: /public_html/
         exclude: |
           .git*
           README.md
