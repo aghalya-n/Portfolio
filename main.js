@@ -245,29 +245,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-//Get the button
+// Get the button
 let mybutton = document.getElementById("backToTop");
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scroll()};
+// Show the button when the user scrolls down 20px from the top of the document
+window.onscroll = function() {
+    scrollFunction2();
+};
 
-function scroll() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
+function scrollFunction2() {
+    if (document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+        alert("You are not at the top of the page!");
+
+    } else {
+        mybutton.style.display = "none";
+    }
 }
 
-// When the user clicks on the button, scroll to the top of the document
-mybutton.onclick = function() {
-//   document.body.scrollTop = 0;
+// Scroll to the top when the user clicks on the button
+mybutton.addEventListener("click", function() {
     document.documentElement.scrollTo({
         top: 0,
         behavior: 'smooth'
     });
-//   document.documentElement.scrollTop = 0;
-}
+    alert("You are at the top of the page!");
+});
+
 
 const waveText = document.getElementById('wave-text');
 if (waveText) {
