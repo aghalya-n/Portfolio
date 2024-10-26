@@ -43,10 +43,10 @@ module.exports = {
         test: /\.css$/i,  // For handling plain CSS files
         use: ["style-loader", "css-loader"],
       },
-      {
-        test: /\.s[ac]ss$/i,  // For handling SCSS files
-        use: ["style-loader", "css-loader", "sass-loader"],
-      },
+      // {
+      //   test: /\.s[ac]ss$/i,  // For handling SCSS files
+      //   use: ["style-loader", "css-loader", "sass-loader"],
+      // },
       {
         test: /\.(png|jpg|jpeg|gif|svg|pdf)$/i,  // Handling images and PDFs
         type: 'asset/resource',

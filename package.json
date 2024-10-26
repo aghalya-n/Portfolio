@@ -4,7 +4,8 @@
   "description": "CS498RK MP1",
   "scripts": {
     "start": "export NODE_OPTIONS=--openssl-legacy-provider; webpack-dev-server",
-    "build": "export NODE_OPTIONS=--openssl-legacy-provider; webpack; netlify deploy --prod"
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider; webpack; netlify deploy --prod",
+    "watch-css": "sass --watch src/css/main.scss public/css/main.css"
   },
   "author": "UIUC Web Programming Staff",
   "license": "ISC",
@@ -26,7 +27,7 @@
     "postcss": "^8.3.6",
     "postcss-loader": "^6.1.1",
     "prettier": "^2.3.2",
-    "sass": "^1.38.2",
+    "sass": "^1.80.4",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.3.4",
     "webpack": "^5.51.1",

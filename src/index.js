@@ -8,7 +8,7 @@ import './index.html';
 import './about.html';
 
 // Stylesheets
-import './css/main.scss';
+import './css/main.css';
 import './css/about.css';
 
 // Scripts
